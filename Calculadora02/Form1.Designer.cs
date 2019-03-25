@@ -52,6 +52,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.buttonComa = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +120,7 @@
             // btnMemoria
             // 
             this.btnMemoria.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnMemoria.Location = new System.Drawing.Point(70, 37);
+            this.btnMemoria.Location = new System.Drawing.Point(70, 38);
             this.btnMemoria.Name = "btnMemoria";
             this.btnMemoria.Size = new System.Drawing.Size(32, 30);
             this.btnMemoria.TabIndex = 8;
@@ -166,7 +167,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button1.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button2
             // 
@@ -177,7 +178,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button2.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button3
             // 
@@ -188,7 +189,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button3.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button4
             // 
@@ -199,7 +200,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button4.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button5
             // 
@@ -210,7 +211,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button5.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button6
             // 
@@ -221,7 +222,7 @@
             this.button6.TabIndex = 14;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button6.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button7
             // 
@@ -232,7 +233,7 @@
             this.button7.TabIndex = 14;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button7.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button8
             // 
@@ -243,7 +244,7 @@
             this.button8.TabIndex = 14;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button8.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // button9
             // 
@@ -254,7 +255,7 @@
             this.button9.TabIndex = 14;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button9.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // btnEqual
             // 
@@ -270,13 +271,13 @@
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnBorrar.Location = new System.Drawing.Point(18, 37);
+            this.btnBorrar.Location = new System.Drawing.Point(32, 38);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(32, 30);
             this.btnBorrar.TabIndex = 16;
             this.btnBorrar.Text = "C";
             this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            this.btnBorrar.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // button0
             // 
@@ -287,7 +288,7 @@
             this.button0.TabIndex = 17;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = false;
-            this.button0.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.button0.Click += new System.EventHandler(this.btnnumero_Click);
             // 
             // buttonComa
             // 
@@ -298,7 +299,18 @@
             this.buttonComa.TabIndex = 18;
             this.buttonComa.Text = ",";
             this.buttonComa.UseVisualStyleBackColor = false;
-            this.buttonComa.Click += new System.EventHandler(this.buttonnumero_Click);
+            this.buttonComa.Click += new System.EventHandler(this.btnnumero_Click);
+            // 
+            // btnDel
+            // 
+            this.btnDel.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnDel.Location = new System.Drawing.Point(108, 38);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(39, 30);
+            this.btnDel.TabIndex = 19;
+            this.btnDel.Text = "DEL";
+            this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // Calculadora
             // 
@@ -306,6 +318,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(243, 296);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.buttonComa);
             this.Controls.Add(this.button0);
             this.Controls.Add(this.btnBorrar);
@@ -366,6 +379,7 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonComa;
+        private System.Windows.Forms.Button btnDel;
     }
 }
 
