@@ -12,10 +12,12 @@ using System.Windows.Forms;
 namespace Calculadora01
 {
     public partial class Calculadora : Form
-    {
+    {       
         private Calculadora2 calc;
         private string[] operandos;
-       
+
+        private Calculadora2.Funcion operacionEnCurso;
+              
         public Calculadora()
         {
             InitializeComponent();            
@@ -23,36 +25,43 @@ namespace Calculadora01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            calc = new Calculadora2();            
+            calc = new Calculadora2();                
         }
 
-        private void CapturaDatos()
+        private void CapturaOperandos()
         {
             char[] operaciones = { '+', '-', 'x', '/' };
-            operandos = PantallaTxt.Text.Split(operaciones, StringSplitOptions.RemoveEmptyEntries);                          
+            operandos = PantallaTxt.Text.Split(operaciones, StringSplitOptions.RemoveEmptyEntries);    
+
+            calc.valor1 = double.Parse(operandos[0]);
+            calc.valor2 = double.Parse(operandos[1]);
         }
 
         private void btnSumar_Click(object sender, EventArgs e)
         {            
-            calc.operacion = OperacionEnCurso.Sumar;
+            // calc.operacion = OperacionEnCurso.Sumar;
+            operacionEnCurso = calc.Sumar;
             PantallaTxt.Text += " + ";
         }        
 
         private void btnRestar_Click(object sender, EventArgs e)
         {
-            calc.operacion= OperacionEnCurso.Restar;
+            //calc.operacion= OperacionEnCurso.Restar;
+            operacionEnCurso = calc.Restar;
             PantallaTxt.Text += " - ";            
         }
 
         private void btnMultiplicar_Click(object sender, EventArgs e)
         {
-            calc.operacion = OperacionEnCurso.Multiplicar;
+            //calc.operacion = OperacionEnCurso.Multiplicar;
+            operacionEnCurso = calc.Multiplicar;
             PantallaTxt.Text += " x ";
         }       
 
         private void btnDividir_Click(object sender, EventArgs e)
         {
-            calc.operacion = OperacionEnCurso.Dividir; 
+            //calc.operacion = OperacionEnCurso.Dividir; 
+            operacionEnCurso = calc.Dividir;
             PantallaTxt.Text += " / ";
         }
 
@@ -71,12 +80,10 @@ namespace Calculadora01
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            CapturaDatos();
-            
-            calc.valor1 = double.Parse(operandos[0]);
-            calc.valor2 = double.Parse(operandos[1]);
+            CapturaOperandos();
             PantallaTxt.Text += " = ";
-            PantallaTxt.Text += calc.Calcular(calc.valor1, calc.valor2).ToString();
+            // PantallaTxt.Text += calc.Calcular(calc.valor1, calc.valor2).ToString();
+            PantallaTxt.Text += calc.Calcular(calc.valor1, calc.valor2, operacionEnCurso).ToString();
             
             btnMemoria.BackColor = Color.Cornsilk;
         }

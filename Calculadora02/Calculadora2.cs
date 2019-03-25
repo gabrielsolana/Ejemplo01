@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Calculadora01
 {
-    class Calculadora2
+    public class Calculadora2
     {
         public double valor1;
         public double valor2;
 
         public bool usaMemoria = false;
-        public double memoria;
-
-        public OperacionEnCurso operacion;              
+        public double memoria;       
+        
+        public delegate double Funcion (double a, double b);
 
         public double Sumar(double a, double b)
         {
@@ -48,36 +48,21 @@ namespace Calculadora01
         }
 
         public double Dividir(double a, double b) 
-        {          
-               
+        {                         
             if (usaMemoria)
                 a = memoria;
             var result = a / b;
             memoria = result;
 
             return result;
+        }       
 
-        }
-
-        public double Calcular()
+        public double Calcular(double v1, double v2, Funcion f)
         {
             double resultado = 0d;
-            switch (operacion)
-            {               
-                case (OperacionEnCurso.Sumar):
-                    resultado = Sumar(valor1, valor2);
-                    break;
-                    
-                case (OperacionEnCurso.Restar):
-                    resultado = Restar(valor1, valor2);
-                    break;
-                case (OperacionEnCurso.Multiplicar):
-                    resultado = Multiplicar(valor1, valor2);
-                    break;
-                case (OperacionEnCurso.Dividir):
-                    resultado = Dividir(valor1, valor2);
-                    break;
-            }
+                
+            resultado = f(v1, v2);
+        
             return resultado;
         }
 
@@ -86,15 +71,6 @@ namespace Calculadora01
             valor1 = 0;
             valor2 = 0;
             memoria = 0;
-            operacion = OperacionEnCurso.Reposo;
         }
-    }
-    public enum OperacionEnCurso
-    {
-        Reposo,
-        Sumar,
-        Restar,
-        Multiplicar,
-        Dividir
-    };
+    }  
 }
