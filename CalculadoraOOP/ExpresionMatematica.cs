@@ -9,7 +9,8 @@ namespace CalculadoraOOP
 
         public bool SoyValida(string input)
         {
-            string expresionValida = @"^(\d+\+)+$";
+            // string expresionValida = @"^(\d+\+)+$";
+            string expresionValida = @"^(?!.*[+\-x\/]{2,})[0-9+\-x\/]*$";
             Regex rx = new Regex(expresionValida);
             
             return rx.IsMatch(input);

@@ -13,10 +13,10 @@ namespace CalculadoraOOP
 
         public double Resultado()
         {
-            var calculo = 0d;
-            for (var i = 0; i < Memoria.Length; i = i + 2)
+            var calculo = 0d; 
+            for (var i = 1; i < Memoria.Length; i = i + 2)
             {
-                switch (Memoria[i+1])
+                switch (Memoria[i])
                 {
                     case '+':
                         ultimaFuncion = Sumar;
@@ -31,14 +31,14 @@ namespace CalculadoraOOP
                         ultimaFuncion = Dividir;
                         break;
                 }
-                calculo += HacerCuentas(Memoria[i], Memoria[i + 2], ultimaFuncion);
+                // calculo += HacerCuentas(
             }
             return calculo;
         }
 
-        public double Sumar (double a, double b) => a + b;
+        public double Sumar (double a, double b) => a-48 + b-48;
         public double Restar (double a, double b) => a - b;
-        public double Multiplicar (double a, double b) => a * b;
+        public double Multiplicar (double a, double b) => (a-48) * (b-48);
         public double Dividir (double a, double b) => a / b;
 
         public double HacerCuentas(double a, double b, Funcion f)
